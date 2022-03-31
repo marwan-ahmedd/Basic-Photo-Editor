@@ -32,8 +32,8 @@ int main()
 {
   loadImage();
   // BWImage();
-  // invertImage();
-  // mergeImage();
+  // invertImage(); // Done
+  // mergeImage(); // Done
   // flipImage();
   // rotateImage();
   // darkANDLight();
