@@ -31,12 +31,18 @@ void darkANDLight();
 int main()
 {
   loadImage();
-  // BWImage();
-  // invertImage(); // Done
-  // mergeImage(); // Done
-  // flipImage();
-  // rotateImage();
-  // darkANDLight();
+  // BWImage(); // (Mohamed)
+  // invertImage(); // Done (Marwan)
+  // mergeImage(); // Done (Abo Khalifa)
+  // flipImage(); // (Mohamed)
+  // rotateImage(); // (Marwan)
+  // darkANDLight(); // (Abo Khalifa)
+  // detectEdges(); // (Mohamed)
+  // enlarge(); // (Marwan)
+  // shrink(); // (Abo Khalifa)
+  // mirror(); // (Mohamed)
+  // shuffle(); // (Marwan)
+  // blur(); // (Abo Khalifa)
   saveImage();
   return 0;
 }
