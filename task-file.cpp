@@ -36,7 +36,7 @@ int main()
   // invertImage(); // Done (Marwan)
   // mergeImage(); // Done (Abo Khalifa)
   // flipImage(); // (Mohamed)
-  // rotateImage(); // (Marwan)
+  rotateImage(); // (Marwan)
   // darkANDLight(); // (Abo Khalifa)
   // detectEdges(); // (Mohamed)
   // enlarge(); // (Marwan)
@@ -75,6 +75,7 @@ void saveImage ()
    // Add to it .bmp extension and load image
    strcat (imageFileName, ".bmp");
    writeGSBMP(imageFileName, image1);
+   cout << "File has been created !";
 }
 
 //_________________________________________
@@ -149,6 +150,45 @@ void flipImage (){
 //_________________________________________
 void rotateImage(){
 
+  int degree, k;
+    cout << "Rotate (90), (180) or (360) degrees? ";
+    cin >> degree;
+    if (degree % 90 == 0)
+    {
+      k = degree / 90;
+    }
+    else{
+      cout << "Invalid degree. UnChanged file will be created" << endl;
+      k = 0;
+    }
+    
+    for (int i = 0; i < k; i++)   // loops until the amount of rotates end
+    {
+      for (int i = 0; i < SIZE; ++i)
+      {
+        for (int j = i; j < SIZE; ++j)
+        {
+          if (i != j)   // saves time by skipping the ones transposing itself
+          {
+            auto tmp = image1[i][j];
+            image1[i][j] = image1[j][i];    // transpose the picture
+            image1[j][i] = tmp;
+          }
+        }
+      }
+
+      for (int i = 0; i < SIZE; ++i)
+      {
+        for (int j = 0; j < SIZE/2; ++j)   // Size divided by 2 because we 2 steps not 1
+        {
+          auto tmp = image1[i][j];
+          image1[i][j] = image1[i][SIZE-1-j];   // Flip horizontally
+          image1[i][SIZE-1-j] = tmp;
+        }
+      }
+    }
+    
+  
 }
 
 //_________________________________________
