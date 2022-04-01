@@ -13,6 +13,7 @@
 #include "bmplib.h"
 
 using namespace std;
+unsigned char image[SIZE][SIZE];
 unsigned char image1[SIZE][SIZE];
 unsigned char image2[SIZE][SIZE];
 
@@ -31,7 +32,7 @@ void darkANDLight();
 int main()
 {
   loadImage();
-  // BWImage(); // (Mohamed)
+  BWImage(); // Done (Mohamed)
   // invertImage(); // Done (Marwan)
   // mergeImage(); // Done (Abo Khalifa)
   // flipImage(); // (Mohamed)
@@ -79,7 +80,26 @@ void saveImage ()
 
 //_________________________________________
 void BWImage (){
+    int average = 0;
 
+    for (int i = 0; i < SIZE; i++){
+        for (int j = 0; j < SIZE; j++)
+        {
+            average += image[i][j];
+        }
+    }
+
+    average /= (SIZE * SIZE);
+
+    for (int i = 0; i < SIZE; i++){
+        for (int j = 0; j < SIZE; j++)
+        {
+            if(image[i][j] > average)
+                image[i][j] = 255;
+            else
+                image[i][j] = 0;
+        }
+    }
 }
 
 //_________________________________________
