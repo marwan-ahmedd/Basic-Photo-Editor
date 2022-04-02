@@ -13,7 +13,6 @@
 #include "bmplib.h"
 
 using namespace std;
-unsigned char image[SIZE][SIZE];
 unsigned char image1[SIZE][SIZE];
 unsigned char image2[SIZE][SIZE];
 
@@ -85,7 +84,7 @@ void BWImage (){
     for (int i = 0; i < SIZE; i++){
         for (int j = 0; j < SIZE; j++)
         {
-            average += image[i][j];
+            average += image1[i][j];
         }
     }
 
@@ -94,10 +93,10 @@ void BWImage (){
     for (int i = 0; i < SIZE; i++){
         for (int j = 0; j < SIZE; j++)
         {
-            if(image[i][j] > average)
-                image[i][j] = 255;
+            if(image1[i][j] > average)
+                image1[i][j] = 255;
             else
-                image[i][j] = 0;
+                image1[i][j] = 0;
         }
     }
 }
