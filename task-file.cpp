@@ -19,6 +19,7 @@ unsigned char image2[SIZE][SIZE];
 
 void loadImage ();
 void saveImage ();
+// Part 1
 void BWImage ();
 void invertImage ();
 void mergeImage ();
@@ -26,23 +27,36 @@ void flipImage ();
 void rotateImage();
 void darkANDLight();
 
+// Part 2
+// void detectEdges();
+// void enlargeImage();
+// void shrinkImage();
+// void mirrorImage();
+// void shuffleImage();
+// void blurImage();
+
 
 
 int main()
 {
   loadImage();
-  BWImage(); // Done (Mohamed)
-  // invertImage(); // Done (Marwan)
-  // mergeImage(); // Done (Abo Khalifa)
+  // Part 1
+  
+  // BWImage(); // (Mohamed)          // Done
+  // invertImage(); // (Marwan)       // Done
+  // mergeImage(); // (Abo Khalifa)   // Done
   // flipImage(); // (Mohamed)
-  rotateImage(); // Done (Marwan)
+  // rotateImage(); // (Marwan)       // Done
   // darkANDLight(); // (Abo Khalifa)
-  // detectEdges(); // (Mohamed)
-  // enlarge(); // (Marwan)
-  // shrink(); // (Abo Khalifa)
-  // mirror(); // (Mohamed)
-  // shuffle(); // (Marwan)
-  // blur(); // (Abo Khalifa)
+  //---------------------------------
+  // Part 2
+  
+  // detectEdges();
+  // enlargeImage();
+  // shrinkImage();
+  // mirrorImage();
+  // shuffleImage();
+  // blurImage();
   saveImage();
   return 0;
 }
@@ -104,7 +118,6 @@ void BWImage (){
 //_________________________________________
 void invertImage () 
 {
-
   for (int i = 0; i < SIZE; i++) 
   {
     for (int j = 0; j < SIZE; j++) 
@@ -135,10 +148,6 @@ void mergeImage ()
       image1[i][j] = (image1[i][j] + image2[i][j])/2;
     }
   }
-  
-
-  
-
 }
 
 //_________________________________________
@@ -186,8 +195,6 @@ void rotateImage(){
         }
       }
     }
-    
-  
 }
 
 //_________________________________________
