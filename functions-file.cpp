@@ -1,4 +1,4 @@
-// Program: Filters.cpp
+// Program: functions-file.cpp
 // Purpose: 
 // Author:  
 // Date:   
@@ -17,57 +17,13 @@ unsigned char image1[SIZE][SIZE];
 unsigned char image2[SIZE][SIZE];
 
 
-void loadImage ();
-void saveImage ();
-// Part 1
-void BWImage ();
-void invertImage ();
-void mergeImage ();
-void flipImage ();
-void rotateImage();
-void darkANDLight();
-
-// Part 2
-// void detectEdges();
-// void enlargeImage();
-// void shrinkImage();
-// void mirrorImage();
-// void shuffleImage();
-// void blurImage();
-
-
-
-int main()
-{
-  loadImage();
-  // Part 1
-  
-  // BWImage(); // (Mohamed)          // Done
-  // invertImage(); // (Marwan)       // Done
-  // mergeImage(); // (Abo Khalifa)   // Done
-  // flipImage(); // (Mohamed)
-  // rotateImage(); // (Marwan)       // Done
-  // darkANDLight(); // (Abo Khalifa)
-  //---------------------------------
-  // Part 2
-  
-  // detectEdges();
-  // enlargeImage();
-  // shrinkImage();
-  // mirrorImage();
-  // shuffleImage();
-  // blurImage();
-  saveImage();
-  return 0;
-}
-
 //_________________________________________
 void loadImage ()
 {
   char imageFileName[100];
 
    // Get gray scale image target file name
-   cout << "Enter the source image file name: ";
+   cout << "Please enter file name of the image to process: ";
    cin >> imageFileName;
 
    // Add to it .bmp extension and load image
@@ -88,7 +44,7 @@ void saveImage ()
    // Add to it .bmp extension and load image
    strcat (imageFileName, ".bmp");
    writeGSBMP(imageFileName, image1);
-   cout << "File has been created !";
+   cout << "File has been created !" << endl;
 }
 
 //_________________________________________
