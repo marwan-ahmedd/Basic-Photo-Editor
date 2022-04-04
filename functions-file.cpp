@@ -1,8 +1,12 @@
+// FCI – Programming 1 – 2022 - Assignment 3 
 // Program: functions-file.cpp
-// Purpose: 
-// Author:  
-// Date:   
-// Version: 1.0
+// Last Modification Date: 4/4/2022
+// Purpose: A Menu with the option to load an image and select within 12 filters and save the new file.
+// Author1 and ID and Group: MarwanAhmed 20210377 A
+// Author2 and ID and Group: xxxxx xxxxx
+// Author3 and ID and Group: xxxxx xxxxx
+  
+
 
 #include <iostream>
 #include <fstream>
