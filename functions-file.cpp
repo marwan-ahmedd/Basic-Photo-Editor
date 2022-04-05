@@ -3,7 +3,7 @@
 // Last Modification Date: 4/4/2022
 // Purpose: A Menu with the option to load an image and select within 12 filters and save the new file.
 // Author1 and ID and Group: MarwanAhmed 20210377 A
-// Author2 and ID and Group: Mohamed Waleed Mohamed Abd El-Wahab 20210363
+// Author2 and ID and Group: Mohamed Waleed Mohamed Abd El-Wahab 20210363 A
 // Author3 and ID and Group: xxxxx xxxxx
   
 
