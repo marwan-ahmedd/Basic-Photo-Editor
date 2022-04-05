@@ -3,7 +3,7 @@
 // Last Modification Date: 4/4/2022
 // Purpose: A Menu with the option to load an image and select within 12 filters and save the new file.
 // Author1 and ID and Group: MarwanAhmed 20210377 A
-// Author2 and ID and Group: xxxxx xxxxx
+// Author2 and ID and Group: Mohamed Waleed Mohamed Abd El-Wahab 20210363
 // Author3 and ID and Group: xxxxx xxxxx
   
 
@@ -111,8 +111,43 @@ void mergeImage ()
 }
 
 //_________________________________________
-void flipImage (){
-
+void mirrorImage (){
+    string option;
+    cout << "Choose which side to mirror\n1-Right side\n2-Left side\n3-Upper side\n4-Bottom side\n";
+    cin >> option;
+    
+    if (option == "1")
+    {
+        for (int i = 0; i < SIZE; i++){
+            for (int j = 0; j < SIZE; j++){
+                    image1[i][j] = image1[i][255 - j];
+                }
+            }
+    }
+    if (option == "2")
+    {
+        for (int i = 255; i > 0; i--){
+            for (int j = 255; j > 0; j--){
+                    image1[i][j] = image1[i][255 - j];
+                }
+            }
+    }
+    if (option == "3")
+    {
+        for (int i = 255; i > 0; i--){
+            for (int j = 255; j > 0; j--){
+                    image1[i][j] = image1[255 - i][j];
+                }
+            }
+    }
+    if (option == "4")
+    {
+        for (int i = 0; i < SIZE; i++){
+            for (int j = 0; j < SIZE; j++){
+                    image1[i][j] = image1[255 - i][j];
+                }      
+            }
+    }
 }
 
 //_________________________________________

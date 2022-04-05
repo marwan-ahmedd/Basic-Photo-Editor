@@ -14,7 +14,7 @@ int main()
         cout << "1- Black & White Filter\n" << endl;
         cout << "2- Invert Filter\n" << endl;
         cout << "3- Merge Filter\n" << endl;
-        cout << "4- Flip Image\n" << endl;
+        cout << "4- Mirror Image\n" << endl;
         cout << "5- Rotate Image\n" << endl;
         cout << "6- Darken and Lighten Image\n" << endl;
         cout << "s- Save the image to a file\n" << endl;
@@ -32,7 +32,7 @@ int main()
                 mergeImage();
                 break;
             case '4':
-                flipImage();
+                mirrorImage();
                 break;
             case '5':
                 rotateImage();
