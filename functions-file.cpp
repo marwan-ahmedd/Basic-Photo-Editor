@@ -112,6 +112,7 @@ void mergeImage ()
 
 //_________________________________________
 void mirrorImage (){
+  
     string option;
     cout << "Choose which side to mirror\n1-Right side\n2-Left side\n3-Upper side\n4-Bottom side\n";
     cin >> option;
