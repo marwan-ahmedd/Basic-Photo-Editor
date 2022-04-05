@@ -24,21 +24,27 @@ int main()
         switch (choice){
             case '1':    
                 BWImage();
+                cout << "Filter applied successfully !" << endl;
                 break;
             case '2':
                 invertImage();
+                cout << "Filter applied successfully !" << endl;
                 break;
             case '3':
                 mergeImage();
+                cout << "Filter applied successfully !" << endl;
                 break;
             case '4':
                 mirrorImage();
+                cout << "Filter applied successfully !" << endl;
                 break;
             case '5':
                 rotateImage();
+                cout << "Filter applied successfully !" << endl;
                 break;
             case '6':
                 darkANDLight();
+                cout << "Filter applied successfully !" << endl;
                 break;
             case 's':
                 saveImage();

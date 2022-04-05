@@ -37,7 +37,6 @@ void loadImage ()
 
 //_________________________________________
 void saveImage () 
-
 {
    char imageFileName[100];
 
