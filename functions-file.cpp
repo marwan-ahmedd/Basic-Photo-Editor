@@ -152,8 +152,6 @@ void mirrorImage (){
 
 //_________________________________________
 void rotateImage(){
-  
-
   int degree, k;
   jump: ;
   cout << "Rotate (90), (180) or (360) degrees? ";
@@ -192,5 +190,49 @@ void rotateImage(){
 
 //_________________________________________
 void darkANDLight(){
+  char choice;
+  cout << "Do you want to (d)arken or (l)ighten? ";
+  cin >> choice;
+  if (choice == 'd' || choice == 'D')
+  {
+    int num = 0;
+    for (int i = 0; i < SIZE; i++) {
+      for (int j = 0; j < SIZE; j++) {
+        int result = 0;
+        num = image1[i][j];
+        result = num / 2;
 
+        num -= (result);
+        if (num < 0)
+        {
+          image1[i][j] = 0;
+        }
+        else
+          image1[i][j] = num;
+      }
+    }
+  }
+
+  else if (choice == 'l' || choice == 'L')
+  {
+    int num = 0;
+    for (int i = 0; i < SIZE; i++) {
+      for (int j = 0; j < SIZE; j++) 
+      {
+        int result = 0;
+        num = image1[i][j];
+        result = num / 2;
+        if (result < 50)
+          result = 100;
+        num += (result);
+
+        if (num > 255)
+        {
+          image1[i][j] = 250;
+        }
+        else
+          image1[i][j] = num;
+	    }
+	}
+  }
 }
