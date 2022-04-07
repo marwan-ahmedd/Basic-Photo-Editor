@@ -175,9 +175,7 @@ void rotateImage(){
       {
         if (i != j)   // saves time by skipping the ones transposing itself
         {
-          auto tmp = image1[i][j];
-          image1[i][j] = image1[j][i];    // transpose the picture
-          image1[j][i] = tmp;
+          swap (image1[i][j], image1[j][i]);  // transposing the matrix
         }
       }
     }
@@ -186,9 +184,7 @@ void rotateImage(){
     {
       for (int j = 0; j < SIZE/2; ++j)   // Size divided by 2 because we 2 steps not 1
       {
-        auto tmp = image1[i][j];
-        image1[i][j] = image1[i][SIZE-1-j];   // Flip horizontally
-        image1[i][SIZE-1-j] = tmp;
+        swap (image1[i][j], image1[i][SIZE -1-j]);  // Flip horizontally
       }
     }
   }
