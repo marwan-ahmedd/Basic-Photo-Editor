@@ -46,7 +46,7 @@ void saveImage ()
 
    // Add to it .bmp extension and load image
    strcat (imageFileName, ".bmp");
-   writeGSBMP(imageFileName, image1);
+   writeGSBMP(imageFileName, image2);
    cout << "File has been created !" << endl;
 }
 
@@ -67,9 +67,9 @@ void BWImage (){
         for (int j = 0; j < SIZE; j++)
         {
             if(image1[i][j] > average)
-                image1[i][j] = 255;
+                image2[i][j] = 255;
             else
-                image1[i][j] = 0;
+                image2[i][j] = 0;
         }
     }
 }
@@ -81,7 +81,7 @@ void invertImage ()
   {
     for (int j = 0; j < SIZE; j++) 
     {
-        image1[i][j] = 255 - image1[i][j];
+        image2[i][j] = 255 - image1[i][j];
     }
   } 
 }
@@ -104,68 +104,41 @@ void mergeImage ()
   {
     for (int j = 0; j < SIZE; j++)
     {
-      image1[i][j] = (image1[i][j] + image2[i][j])/2;
+      image2[i][j] = (image1[i][j] + image2[i][j])/2;
     }
   }
 }
 
 //_________________________________________
-void mirrorImage (){
-  
-    string option;
-    cout << "Choose which side to mirror\n1-Right side\n2-Left side\n3-Upper side\n4-Bottom side\n";
-    cin >> option;
-    
-    if (option == "1")
-    {
-        for (int i = 0; i < SIZE; i++){
-            for (int j = 0; j < SIZE; j++){
-                    image1[i][j] = image1[i][255 - j];
-                }
-            }
-    }
-    if (option == "2")
-    {
-        for (int i = 255; i > 0; i--){
-            for (int j = 255; j > 0; j--){
-                    image1[i][j] = image1[i][255 - j];
-                }
-            }
-    }
-    if (option == "3")
-    {
-        for (int i = 255; i > 0; i--){
-            for (int j = 255; j > 0; j--){
-                    image1[i][j] = image1[255 - i][j];
-                }
-            }
-    }
-    if (option == "4")
-    {
-        for (int i = 0; i < SIZE; i++){
-            for (int j = 0; j < SIZE; j++){
-                    image1[i][j] = image1[255 - i][j];
-                }      
-            }
-    }
+void flipImage()
+{
+
 }
 
 //_________________________________________
 void rotateImage(){
-  int degree, k;
+  int degree, m;
   jump: ;
   cout << "Rotate (90), (180) or (360) degrees? ";
   cin >> degree;
   if (degree % 90 == 0)
   {
-    k = degree / 90;
+    m = degree / 90;
   }
   else{
     cout << "Invalid degree." << endl;
     goto jump;
   }
 
-  for (int i = 0; i < k; i++)   // loops until the amount of rotates end
+  for (int i = 0; i < SIZE; i++)
+  {
+    for (int j = 0; j < SIZE; j++)
+    {
+      image2[i][j] = image1[i][j];
+    }
+  }
+
+  for (int i = 0; i < m; i++)   // loops until the amount of rotates end
   {
     for (int i = 0; i < SIZE; ++i)
     {
@@ -173,7 +146,7 @@ void rotateImage(){
       {
         if (i != j)   // saves time by skipping the ones transposing itself
         {
-          swap (image1[i][j], image1[j][i]);  // transposing the matrix
+          swap (image2[i][j], image2[j][i]);  // transposing the matrix
         }
       }
     }
@@ -182,7 +155,7 @@ void rotateImage(){
     {
       for (int j = 0; j < SIZE/2; ++j)   // Size divided by 2 because we 2 steps not 1
       {
-        swap (image1[i][j], image1[i][SIZE -1-j]);  // Flip horizontally
+        swap (image2[i][j], image2[i][SIZE -1-j]);  // Flip horizontally
       }
     }
   }
@@ -193,22 +166,31 @@ void darkANDLight(){
   char choice;
   cout << "Do you want to (d)arken or (l)ighten? ";
   cin >> choice;
+  
+  for (int i = 0; i < SIZE; i++)
+  {
+    for (int j = 0; j < SIZE; j++)
+    {
+      image2[i][j] = image1[i][j];
+    }
+  }
+
   if (choice == 'd' || choice == 'D')
   {
     int num = 0;
     for (int i = 0; i < SIZE; i++) {
       for (int j = 0; j < SIZE; j++) {
         int result = 0;
-        num = image1[i][j];
+        num = image2[i][j];
         result = num / 2;
 
         num -= (result);
         if (num < 0)
         {
-          image1[i][j] = 0;
+          image2[i][j] = 0;
         }
         else
-          image1[i][j] = num;
+          image2[i][j] = num;
       }
     }
   }
@@ -220,7 +202,7 @@ void darkANDLight(){
       for (int j = 0; j < SIZE; j++) 
       {
         int result = 0;
-        num = image1[i][j];
+        num = image2[i][j];
         result = num / 2;
         if (result < 50)
           result = 100;
@@ -228,14 +210,145 @@ void darkANDLight(){
 
         if (num > 255)
         {
-          image1[i][j] = 250;
+          image2[i][j] = 250;
         }
         else
-          image1[i][j] = num;
+          image2[i][j] = num;
 	    }
 	}
   }
 }
+
+//_________________________________________
+void detectEdges()
+{
+
+}
+
+//_________________________________________
+void enlargeImage()
+{
+  int choice, istart, iend, jStart, jEnd;
+    jump: ;
+    cout << "Which quarter to enlarge 1, 2, 3 or 4? ";
+    cin >> choice;
+    switch (choice)
+    {
+        case 1:
+            istart = 0;
+            iend = SIZE/2;
+            jStart = 0;
+            jEnd = SIZE/2;
+            break;
+        case 2:
+            istart = 0;
+            iend = SIZE/2;
+            jStart = SIZE/2;
+            jEnd = SIZE;
+            break;
+        case 3:
+            istart = SIZE/2;
+            iend = SIZE;
+            jStart = 0;
+            jEnd = SIZE/2;
+            break;
+        case 4:
+            istart = SIZE/2;
+            iend = SIZE;
+            jStart = SIZE/2;
+            jEnd = SIZE;
+            break;
+        default:
+            cout << "Invalid Number." << endl;
+            goto jump;
+   }
+   for (int i = 0, pos_i = istart; i < SIZE && pos_i < iend; i += 2, pos_i++)
+   {
+      for (int j = 0, pos_j = jStart; j < SIZE && pos_j < jEnd; j += 2, pos_j++)
+      {
+        image2[i][j] = image1[pos_i][pos_j];
+        image2[i + 1][j] = image1[pos_i][pos_j];
+        image2[i][j + 1] = image1[pos_i][pos_j];
+        image2[i + 1][j + 1] = image1[pos_i][pos_j];
+      }
+   }
+}
+
+//_________________________________________
+void shrinkImage()
+{
+
+}
+
+//_________________________________________
+void mirrorImage ()
+{
+    string option;
+    cout << "Choose which side to mirror\n1-Right side\n2-Left side\n3-Upper side\n4-Bottom side\n";
+    cin >> option;
+    for (int i = 0; i < SIZE; i++)
+    {
+      for (int j = 0; j < SIZE; j++)
+      {
+        image2[i][j] = image1[i][j];
+      }
+    }
+
+    if (option == "1")
+    {
+      for (int i = 0; i < SIZE; i++)
+      {
+        for (int j = 0; j < SIZE; j++)
+        {
+          image2[i][j] = image2[i][255 - j];
+        }
+      }
+    }
+    if (option == "2")
+    {
+      for (int i = 255; i > 0; i--)
+      {
+        for (int j = 255; j > 0; j--)
+        {
+          image2[i][j] = image2[i][255 - j];
+        }
+      }
+    }
+    if (option == "3")
+    {
+      for (int i = 255; i > 0; i--)
+      {
+        for (int j = 255; j > 0; j--)
+        {
+          image2[i][j] = image2[255 - i][j];
+        }
+      }
+    }
+    if (option == "4")
+    {
+      for (int i = 0; i < SIZE; i++)
+      {
+        for (int j = 0; j < SIZE; j++)
+        {
+          image2[i][j] = image2[255 - i][j];
+        }      
+      }
+    }
+}
+
+//_________________________________________
+void shuffleImage()
+{
+
+}
+
+//_________________________________________
+void blurImage()
+{
+
+}
+
+//_________________________________________
 int main()
 {
     char choice;
@@ -248,9 +361,15 @@ int main()
     cout << "1- Black & White Filter\n" << endl;
     cout << "2- Invert Filter\n" << endl;
     cout << "3- Merge Filter\n" << endl;
-    cout << "4- Mirror Image\n" << endl;
+    cout << "4- Flip Image\n" << endl;
     cout << "5- Rotate Image\n" << endl;
     cout << "6- Darken and Lighten Image\n" << endl;
+    cout << "7- Detect Image Edges\n" << endl;
+    cout << "8- Enlarge Image\n" << endl;
+    cout << "9- Shrink Image\n" << endl;
+    cout << "a- Mirror 1/2 Image\n" << endl;
+    cout << "b- Shuffle Image\n" << endl;
+    cout << "c- Blur Image\n" << endl;
     cout << "s- Save the image to a file\n" << endl;
     cout << "0- Exit\n" << ">> ";
     cin >> choice;
@@ -269,7 +388,7 @@ int main()
         cout << "Filter applied successfully !" << endl;
         break;
       case '4':
-        mirrorImage();
+        flipImage();
         cout << "Filter applied successfully !" << endl;
         break;
       case '5':
@@ -278,6 +397,30 @@ int main()
         break;
       case '6':
         darkANDLight();
+        cout << "Filter applied successfully !" << endl;
+        break;
+      case '7':
+        detectEdges();
+        cout << "Filter applied successfully !" << endl;
+        break;
+      case '8':
+        enlargeImage();
+        cout << "Filter applied successfully !" << endl;
+        break;
+      case '9':
+        shrinkImage();
+        cout << "Filter applied successfully !" << endl;
+        break;
+      case 'a':
+        mirrorImage();
+        cout << "Filter applied successfully !" << endl;
+        break;
+      case 'b':
+        shuffleImage();
+        cout << "Filter applied successfully !" << endl;
+        break;
+      case 'c':
+        blurImage();
         cout << "Filter applied successfully !" << endl;
         break;
       case 's':
