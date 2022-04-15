@@ -1,4 +1,3 @@
-
 void BWImage (){
     int average = 0;
 
