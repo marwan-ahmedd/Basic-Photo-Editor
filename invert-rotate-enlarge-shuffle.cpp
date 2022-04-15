@@ -1,6 +1,7 @@
 unsigned char temp[4][SIZE/2][SIZE/2] = {};
 unsigned char quarter[(SIZE/2)*(SIZE/2)] = {};
 
+//---------------------------------------------
 void invertImage () 
 {
     for (int i = 0; i < SIZE; i++) 
