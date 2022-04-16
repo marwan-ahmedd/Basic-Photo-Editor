@@ -126,7 +126,7 @@ void extractQuarter(unsigned char * & ptr, int quarter) {
         for (int j = startCol; j < endCol; j++) {
             ptr[k++] = img[i][j];
         }   // Due to the squential organization of memory we can               
-    }       // store the image row-by-row with a single iterator(k)
+    }       // store the image row-by-row with a single iterator(m)
 }
 
 //---------------------------------------------
