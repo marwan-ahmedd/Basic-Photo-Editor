@@ -60,38 +60,38 @@ void enlargeImage()
     cin >> choice;
     switch (choice)
     {
-        case 1:
+        case 1:         // First Quarter
             istart = 0;
             iend = SIZE/2;
             jStart = 0;
             jEnd = SIZE/2;
             break;
-        case 2:
+        case 2:         // Second Quarter
             istart = 0;
             iend = SIZE/2;
             jStart = SIZE/2;
             jEnd = SIZE;
             break;
-        case 3:
+        case 3:         // Third Quarter
             istart = SIZE/2;
             iend = SIZE;
             jStart = 0;
             jEnd = SIZE/2;
             break;
-        case 4:
+        case 4:         // Fourth Quarter
             istart = SIZE/2;
             iend = SIZE;
             jStart = SIZE/2;
             jEnd = SIZE;
             break;
-        default:
+        default:        // Number > 4 or Number < 1
             cout << "Invalid Number." << endl;
             goto jump;
    }
    for (int i = 0, pos_i = istart; i < SIZE && pos_i < iend; i += 2, pos_i++)
    {
         for (int j = 0, pos_j = jStart; j < SIZE && pos_j < jEnd; j += 2, pos_j++)
-        {
+        {               // Duplicates each pixel 4 times
             img[i][j] = img[pos_i][pos_j];
             img[i + 1][j] = img[pos_i][pos_j];
             img[i][j + 1] = img[pos_i][pos_j];
