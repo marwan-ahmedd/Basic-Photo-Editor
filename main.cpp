@@ -11,6 +11,7 @@
 #include "bmplib.h"
 #include "bmplib.cpp"
 unsigned char img[SIZE][SIZE];
+unsigned char img2[SIZE][SIZE];
 #include "invert-rotate-enlarge-shuffle.cpp"
 #include "BW-flip-detect-mirror.cpp"
 #include "merge-darkLight-shrink-blur.cpp"

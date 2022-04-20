@@ -1,5 +1,3 @@
-unsigned char img2[SIZE][SIZE];
-
 void mergeImage ()
 {
     char imageFileName[100];

@@ -24,12 +24,72 @@ void BWImage (){
 //------------------------------------------
 void flipImage()
 {
+    
+    string option;
 
+    cout << "Do you want to flip the image\n1- Vertically\n2- Horizontally\n";
+    cin >> option;
+
+    if(option == "1"){
+
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                img2[i][j] = img[i][255 - j];
+            }
+        }
+        
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                img[i][j] = img2[i][j];
+            }
+            
+        }
+
+    }
+    else if (option == "2"){
+
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                img2[i][j] = img[255 - i][j];
+            }
+        }
+        
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                img[i][j] = img2[i][j];
+            }
+            
+        }
+    }
+    
 }
+
 
 //------------------------------------------
 void detectEdges()
 {
+    for (int i = 0; i < SIZE; i++)
+    {
+        for (int j = 0; j < SIZE; j++)
+        {
+            if (img[i][j] > (img[i + 1][j + 1] + 15) || img[i][j] > (img[i][j + 1] + 15) || img[i][j] > (img[i + 1][j] + 15) && img[i][j] != 255 ){
+
+                img[i][j] = 0;
+            }
+            else{
+
+                img[i][j] = 255;
+            }   
+        }
+    }
 
 }
 
@@ -46,7 +106,7 @@ void mirrorImage ()
         {
             for (int j = 0; j < SIZE; j++)
             {
-            img[i][j] = img[i][255 - j];
+                img[i][j] = img[i][255 - j];
             }
         }
     }
@@ -56,7 +116,7 @@ void mirrorImage ()
         {
             for (int j = 255; j > 0; j--)
             {
-            img[i][j] = img[i][255 - j];
+                img[i][j] = img[i][255 - j];
             }
         }
     }
@@ -66,7 +126,7 @@ void mirrorImage ()
         {
             for (int j = 255; j > 0; j--)
             {
-            img[i][j] = img[255 - i][j];
+                img[i][j] = img[255 - i][j];
             }
         }
     }
@@ -76,7 +136,7 @@ void mirrorImage ()
         {
             for (int j = 0; j < SIZE; j++)
             {
-            img[i][j] = img[255 - i][j];
+                img[i][j] = img[255 - i][j];
             }      
         }
     }
