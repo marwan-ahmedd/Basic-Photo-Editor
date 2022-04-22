@@ -103,6 +103,7 @@ void shrinkImage()
 //------------------------------------------
 void blurImage()
 {
+    //here we bluer the image by take the avg bitwing the all arund bixels
     int n1;
 	for (int i = 0; i < SIZE; i++) {
 		for (int j = 0; j < SIZE; j++) {
