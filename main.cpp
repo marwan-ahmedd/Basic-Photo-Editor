@@ -5,6 +5,7 @@
 // Author1 and ID and Group: Marwan Ahmed Abd El-Fatah 20210377 A
 // Author2 and ID and Group: Mohamed Waleed Mohamed Abd El-Wahab 20210363 A
 // Author3 and ID and Group: Mohammed Saleh Al-Mansori 20210729 A
+// Purpose: Gives the option to apply 12 filters to gray-scaled images
   
 
 #include <iostream>
