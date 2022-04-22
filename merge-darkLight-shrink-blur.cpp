@@ -27,7 +27,6 @@ void darkANDLight()
     char choice;
     cout << "Do you want to (d)arken or (l)ighten? ";
     cin >> choice;
-
     if (choice == 'd' || choice == 'D')
     {
         int num = 0;
@@ -35,6 +34,7 @@ void darkANDLight()
         {
             for (int j = 0; j < SIZE; j++) 
             {
+                // Here we reduce each pixel by 50% and make sure that it still has a positive value
                 int result = 0;
                 num = img[i][j];
                 result = num / 2;
@@ -57,6 +57,7 @@ void darkANDLight()
         {
             for (int j = 0; j < SIZE; j++) 
             {
+                //Here we increase each pixel by 50% and make sure that it still has a positive value
                 int result = 0;
                 num = img[i][j];
                 result = num / 2;
@@ -79,6 +80,7 @@ void darkANDLight()
 //------------------------------------------
 void shrinkImage()
 {
+    //here we shrink the image by skip some pixels Then we collect the pixels together
     int num;
 	cout << endl << "What size do you want to convert to \n Enter the number 2 , 3 or 4 \n"
 		<< "2 - to convernt 1/2\n"
@@ -103,7 +105,7 @@ void shrinkImage()
 //------------------------------------------
 void blurImage()
 {
-    //here we bluer the image by take the avg bitwing the all arund bixels
+    //here we bluer the image by take the avg bitwing the all arund pixels
     int n1;
 	for (int i = 0; i < SIZE; i++) {
 		for (int j = 0; j < SIZE; j++) {
