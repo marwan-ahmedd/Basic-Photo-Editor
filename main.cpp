@@ -1,17 +1,16 @@
 // FCI – Programming 1 – 2022 - Assignment 3 
-// Program: functions-file.cpp
-// Last Modification Date: 4/4/2022
+// Program Name: main.cpp
+// Last Modification Date: 22/4/2022
 // Purpose: A Menu with the option to load an image and select within 12 filters and save the new file.
 // Author1 and ID and Group: Marwan Ahmed Abd El-Fatah 20210377 A
 // Author2 and ID and Group: Mohamed Waleed Mohamed Abd El-Wahab 20210363 A
-// Author3 and ID and Group: xxxxx xxxxx
+// Author3 and ID and Group: Mohammed Saleh Al-Mansori 20210729 A
   
 
 #include <iostream>
 #include "bmplib.h"
 #include "bmplib.cpp"
 unsigned char img[SIZE][SIZE];
-unsigned char img2[SIZE][SIZE];
 #include "invert-rotate-enlarge-shuffle.cpp"
 #include "BW-flip-detect-mirror.cpp"
 #include "merge-darkLight-shrink-blur.cpp"
