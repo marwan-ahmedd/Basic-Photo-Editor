@@ -53,7 +53,14 @@ void flipImage()
         {
             for (int j = 0; j < SIZE; j++)
             {
-                img[i][j] = img[255 - i][j];
+                img2[i][j] = img[255 - i][j];
+            }
+        }
+        for (int i = 0; i < SIZE; i++)
+        {
+            for (int j = 0; j < SIZE; j++)
+            {
+                img[i][j] = img2[i][j];
             }
         }
     }
