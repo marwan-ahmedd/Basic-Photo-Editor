@@ -87,16 +87,23 @@ void enlargeImage()
         default:        // Number > 4 or Number < 1
             cout << "Invalid Number." << endl;
             goto jump;
-   }
+    }
    for (int i = 0, pos_i = istart; i < SIZE && pos_i < iend; i += 2, pos_i++)
    {
         for (int j = 0, pos_j = jStart; j < SIZE && pos_j < jEnd; j += 2, pos_j++)
         {               // Duplicates each pixel 4 times
-            img[i][j] = img[pos_i][pos_j];
-            img[i + 1][j] = img[pos_i][pos_j];
-            img[i][j + 1] = img[pos_i][pos_j];
-            img[i + 1][j + 1] = img[pos_i][pos_j];
+            img2[i][j] = img[pos_i][pos_j];
+            img2[i + 1][j] = img[pos_i][pos_j];
+            img2[i][j + 1] = img[pos_i][pos_j];
+            img2[i + 1][j + 1] = img[pos_i][pos_j];
         }
+   }
+   for (int i = 0; i < SIZE; i++)
+   {
+       for (int j = 0; j < SIZE; j++)
+       {
+           img[i][j] = img2[i][j];
+       }
    }
 }
 
